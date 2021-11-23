@@ -39,7 +39,7 @@
 4. 핵심기술
 ```
     A. 로그인
-
+   
     <template>
     <PageTitle>로그인</PageTitle>
     <form ref="frmLogin" autocomplete="off" @submit="formSubmit($event)">
@@ -87,7 +87,7 @@ export default {
 
 }
 </script>
-
+```
 
   B. 회원가입
   
