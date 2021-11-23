@@ -113,7 +113,7 @@ export default {
 }
 </script>
 ```
-
+  ```
   C. 회원 정보, 수정
   ```
   <template>
@@ -145,3 +145,4 @@ export default {
 
 ```
   D. 
+ ```
