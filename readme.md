@@ -32,12 +32,58 @@
     - 비밀번호 변경시 입력된 경우만 비밀번호가 변경되도록 처리하였으며, 입력을 안할 시 기존 비밀번호가 유지됩니다.
     
   4) 게시판 업로드, 수정, 삭제
-    -  Vue.js를(프론트엔드) 사용하여 게시판 기본 포맷을 만들었으며, 백엔드 파트는 PHP 및 DB(Msql Work)를 연동하여 게시판 등록
-        및 삭제, 수정을 할 수 있게 개발하였습니다.
- 
-    
-   
-  
+    -  Vue.js를(프론트엔드) 사용하여 게시판 기본 포맷을 만들었으며, 백엔드 파트는 PHP 및 DB(Msql Work)를 연동하여 
+      게시판 등록 및 삭제, 수정을 할 수 있게 개발하였습니다.
 ```
 
-## 핵심기술
+4. 핵심기술
+```
+  1) 로그인
+    <template>
+    <PageTitle>로그인</PageTitle>
+    <form ref="frmLogin" autocomplete="off" @submit="formSubmit($event)">
+        <input type="text" name="memId" placeholder="ID" v-model="memId"><br>
+        <input type="password" name="memPw" placeholder="Password : 영문, 숫자, 툭수문자 조합 8-16자" v-model="memPw"><br>
+        <input type="submit" value="Login">
+    </form>
+    <MessagePopup ref='popup' :message="message" />
+</template>
+<script>
+import PageTitle from '../../components/PageTitle.vue'
+import MessagePopup from '../../components/common/Message.vue'
+import member from '../../models/member.js'
+export default {
+    components : {PageTitle, MessagePopup},
+    mixins : [member],
+    created() {
+        if (this.$isLogin()) {
+            this.$router.push({ path : "/logout"} );
+        }
+    },
+    data() {
+        return {
+            message : "",
+            memId : "",
+            memPw : "",
+        };
+    },
+    methods : {
+        async formSubmit(e) {
+            e.preventDefault();
+            const formData = new FormData(this.$refs.frmLogin);
+            const result = await this.$login(formData);
+            if (result.success) {
+                this.memId = "";
+                this.memPw = "";
+               this.$router.push({ path : "/kanban/list"});
+            }
+
+            if (result.message) {
+                this.$showMessage(this, result.message);
+            }
+        }
+    }
+
+}
+</script>
+  
