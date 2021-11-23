@@ -39,7 +39,7 @@
 4. 핵심기술
 ```
     A. 로그인
-```
+
     <template>
     <PageTitle>로그인</PageTitle>
     <form ref="frmLogin" autocomplete="off" @submit="formSubmit($event)">
@@ -88,9 +88,9 @@ export default {
 }
 </script>
 
-```
+
   B. 회원가입
-  ```
+  
   <template>
     <PageTitle>회원가입</PageTitle>
     <Form :mode="mode" />
@@ -112,10 +112,9 @@ export default {
     }
 }
 </script>
-```
-  ```
+
   C. 회원 정보, 수정
-  ```
+
   <template>
     <PageTitle>회원정보수정</PageTitle>
     <Form :mode="mode" :member="member" />
@@ -143,6 +142,6 @@ export default {
 }
 </script>
 
-```
+
   D. 
  ```
