@@ -7,6 +7,7 @@
   로그인, 로그아웃, 회원가입,회원정보 수정, 게시물 업로드, 삭제, 추가, 조회 기능이 있는 웹 페이지 입니다.
   PHP로 구현된 칸반 보드 <http://bws961228.cafe24.com>
   Node.js로 구현된 칸반 보드<http://qkddnjstjr96.cafe24app.com>
+  조별 과제로 진행하였으며 PHP 파트를 담당하였습니다.
 ```
 2. 적용 기술
 ```  
@@ -336,7 +337,7 @@ CREATE TABLE `member` (
  ```
  
  ```
- I. 회원가입, 로그인 처리
+ I. 회원가입, 로그인 처리 (PHP)
  
 <?php
 include_once "../common.php";
@@ -392,13 +393,10 @@ include_once "../output.php";
  ```
  
  ```
- J. 게시물 추가, 삭제 처리
+ J. 게시물 추가, 삭제 처리 (PHP)
  <?php
 include_once "../common.php"; // 공통 정의 부분
-/**
-* 작업 추가, 수정, 삭제 처리
-*
-*/
+
 $kanban = Kanban::getInstance();
 
 try {
