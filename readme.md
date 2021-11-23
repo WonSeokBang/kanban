@@ -37,7 +37,7 @@
 ```
 
 4. 핵심기술
-    1) 로그인
+    A. 로그인
 ```
     <template>
     <PageTitle>로그인</PageTitle>
@@ -88,7 +88,7 @@ export default {
 </script>
 
 ```
-  2) 회원가입
+  B. 회원가입
   ```
   <template>
     <PageTitle>회원가입</PageTitle>
@@ -113,7 +113,7 @@ export default {
 </script>
 ```
 
-  3) 회원 정보, 수정
+  C. 회원 정보, 수정
   ```
   <template>
     <PageTitle>회원정보수정</PageTitle>
@@ -143,4 +143,4 @@ export default {
 </script>
 
 ```
-  4)
+  D. 
