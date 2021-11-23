@@ -37,8 +37,8 @@
 ```
 
 4. 핵심기술
+    1) 로그인
 ```
-  1) 로그인
     <template>
     <PageTitle>로그인</PageTitle>
     <form ref="frmLogin" autocomplete="off" @submit="formSubmit($event)">
@@ -113,5 +113,34 @@ export default {
 </script>
 ```
 
-  3) 회원가입
+  3) 회원 정보, 수정
   ```
+  <template>
+    <PageTitle>회원정보수정</PageTitle>
+    <Form :mode="mode" :member="member" />
+</template>
+<script>
+import PageTitle from "../../components/PageTitle.vue"
+import Form from "../../components/member/Form.vue"
+export default {
+    components: {PageTitle, Form},
+    created() {
+        if (!this.$isLogin()) {
+            this.$router.push({ path : "/login" })
+        }
+    },
+    computed: {
+        member() {
+            return this.$getMember();
+        }
+    },
+    data() {
+        return {
+            mode : "update"
+        };
+    }
+}
+</script>
+
+```
+  4)
